@@ -1,16 +1,15 @@
-import React, { useContext } from "react";
-import Hero from "../ui_components/hero_component";
+import React from "react";
+import Hero from "../ui_components/Hero";
 import Banner from "../ui_components/Banner";
-import { DataContext } from "../../state_managment/context";
+import RoomContainer from "./listing/RoomContainer";
 
 const Rooms = _ => {
-  const [rooms] = useContext(DataContext);
-
   return (
     <>
       <Hero hero="roomsHero">
         <Banner title="OUR ROOMS" subtitle="Checkout our available rooms" />
       </Hero>
+      <RoomContainer />
     </>
   );
 };

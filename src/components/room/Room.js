@@ -19,13 +19,11 @@ const Room = ({ match }) => {
     [slug, match.params.id]
   );
 
-  console.log(rooms)
-
   return (
     <>
       {
         <div>
-          <StyledHero img={`../.${rooms[0].fields.images[3].fields.file.url}`}>
+          <StyledHero img={`../.${rooms[0].fields.images[1].fields.file.url}`}>
             <Banner title={slug} subtitle="">
               <Link to="/" className="btn-primary">
                 Back to rooms

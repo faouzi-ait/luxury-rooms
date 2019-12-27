@@ -43,13 +43,6 @@
                 "url": "./images/details-3.jpeg"
               }
             }
-          },
-          {
-            "fields": {
-              "file": {
-                "url": "./images/details-4.jpeg"
-              }
-            }
           }
         ]
       }
@@ -96,13 +89,6 @@
             "fields": {
               "file": {
                 "url": "./images/details-3.jpeg"
-              }
-            }
-          },
-          {
-            "fields": {
-              "file": {
-                "url": "./images/details-4.jpeg"
               }
             }
           }
@@ -153,13 +139,6 @@
                 "url": "./images/details-3.jpeg"
               }
             }
-          },
-          {
-            "fields": {
-              "file": {
-                "url": "./images/details-4.jpeg"
-              }
-            }
           }
         ]
       }
@@ -206,13 +185,6 @@
             "fields": {
               "file": {
                 "url": "./images/details-3.jpeg"
-              }
-            }
-          },
-          {
-            "fields": {
-              "file": {
-                "url": "./images/details-4.jpeg"
               }
             }
           }
@@ -263,13 +235,6 @@
                 "url": "./images/details-3.jpeg"
               }
             }
-          },
-          {
-            "fields": {
-              "file": {
-                "url": "./images/details-4.jpeg"
-              }
-            }
           }
         ]
       }
@@ -318,13 +283,6 @@
                 "url": "./images/details-3.jpeg"
               }
             }
-          },
-          {
-            "fields": {
-              "file": {
-                "url": "./images/details-4.jpeg"
-              }
-            }
           }
         ]
       }
@@ -371,13 +329,6 @@
             "fields": {
               "file": {
                 "url": "./images/details-3.jpeg"
-              }
-            }
-          },
-          {
-            "fields": {
-              "file": {
-                "url": "./images/details-4.jpeg"
               }
             }
           }
@@ -476,13 +427,6 @@
                 "url": "./images/details-3.jpeg"
               }
             }
-          },
-          {
-            "fields": {
-              "file": {
-                "url": "./images/details-4.jpeg"
-              }
-            }
           }
         ]
       }
@@ -497,7 +441,7 @@
         "type": "family",
         "price": 350,
         "size": 550,
-        "capacity": 4,
+        "capacity": 3,
         "pets": false,
         "breakfast": false,
         "featured": false,
@@ -530,13 +474,6 @@
             "fields": {
               "file": {
                 "url": "./images/details-3.jpeg"
-              }
-            }
-          },
-          {
-            "fields": {
-              "file": {
-                "url": "./images/details-4.jpeg"
               }
             }
           }
@@ -585,13 +522,6 @@
             "fields": {
               "file": {
                 "url": "./images/details-3.jpeg"
-              }
-            }
-          },
-          {
-            "fields": {
-              "file": {
-                "url": "./images/details-4.jpeg"
               }
             }
           }

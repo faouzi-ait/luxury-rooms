@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Hero from "../ui_components/hero_component";
+import Hero from "../ui_components/Hero";
 import Banner from "../ui_components/Banner";
 import Services from "../ui_components/Services";
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ import FeaturedRooms from "./FeaturedRooms";
 import { DataContext } from "../../state_managment/context";
 
 const Home = _ => {
-  const [rooms, , loading] = useContext(DataContext);
+  const [rooms, , , loading, ,] = useContext(DataContext);
 
   return (
     <>
@@ -21,7 +21,7 @@ const Home = _ => {
         </Banner>
       </Hero>
       <Services />
-      <Title title="featured" />
+      <Title title="Top Rated Rooms" />
       <div className="featured-rooms">
         <div className="featured-rooms-center">
           {loading ? <LoadingSpinner /> : <FeaturedRooms list={rooms} />}

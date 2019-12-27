@@ -3,13 +3,108 @@ import API from "../api/API";
 
 export const DataContext = createContext();
 
-export const DataProvider = props => {
-  const [rooms, setRooms] = useState([]);
-  const [loading, setLoading] = useState(false);
+/* 
+  1 - Create the states for the rooms
+  2 - Create the states for the filtered rooms
+      - Pass the rooms as default values in the effect hook after the states declarations
+  2 - Set the max price & size values
+  3 - Create the handleChange() method
+  4 - Pass the handleMethod as props
 
+  Optional:
+  1 - Create an object container for the states
+  2 - Pass the object as props
+*/
+
+export const DataProvider = props => {
+  // ACTIONS TO BE DONE UPON COMPONENT LOADING
   useEffect(_ => {
     getAllRooms();
   }, []);
+
+  // MAIN DATA FOR ROOM LISTING, SORTED LISTING & LOADER
+  const [rooms, setRooms] = useState([]);
+  const [sortedRooms, setSortedRooms] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  // 1 - DEFAULT VALUES FOR FILTERING
+  const [type, setType] = useState("all");
+  const [capacity, setCapacity] = useState(1);
+  const [price, setPrice] = useState(0);
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(0);
+  const [minSize, setMinSize] = useState(0);
+  const [maxSize, setMaxSize] = useState(0);
+  const [breakfast, setBreakfast] = useState(false);
+  const [pets, setPets] = useState(false);
+
+  const maxPriceDefault = Math.max(...rooms.map(item => item.fields.price));
+  const maxSizeDefault = Math.max(...rooms.map(item => item.fields.size));
+  
+  // SORTED ROOM STATE TO BE PASSED IN THE ROOM LIST TO BE DISPLAYED
+  useEffect(
+    _ => {
+      setSortedRooms(rooms);
+      setMaxPrice(Number(maxPriceDefault));
+      setMaxSize(Number(maxSizeDefault));
+    },
+    [rooms, maxPriceDefault, maxSizeDefault]
+  );
+
+  const handleChange = e => {
+    let tempRooms = [...rooms];
+    const valueType = e.target.value;
+
+    console.log(">>>>>>>>>: ", e.target.name);
+
+    if (e.target.name === "type") {
+      tempRooms = tempRooms.filter(room => room.fields.type === valueType);
+      valueType !== "all" ? setSortedRooms(tempRooms) : setSortedRooms(rooms);
+    }
+    if (e.target.name === "guest") {
+      tempRooms = tempRooms.filter(
+        room => room.fields.capacity === Number(valueType)
+      );
+      setSortedRooms(tempRooms);
+    }
+    if (e.target.name === "price") {
+      console.log(e.target.value);
+      setPrice(e.target.value);
+      tempRooms = tempRooms.filter(room => room.fields.price <= e.target.value);
+      setSortedRooms(tempRooms);
+    }
+  };
+
+  // MAKING THE FILTER STATES & METHODS AVAILABLE
+  const allFilters = {
+    byType: { get: type, set: setType },
+    byCapacity: {
+      get: capacity,
+      set: setCapacity
+    },
+    byPrice: { get: price, set: setPrice },
+    byMinPrice: {
+      get: minPrice,
+      set: setMinPrice
+    },
+    byMaxPrice: {
+      get: maxPrice,
+      set: setMaxPrice
+    },
+    byMinSize: {
+      get: minSize,
+      set: setMinSize
+    },
+    byMaxSize: {
+      get: maxSize,
+      set: setMaxSize
+    },
+    byBreakfast: {
+      get: breakfast,
+      set: setBreakfast
+    },
+    byPets: { get: pets, set: setPets }
+  };
 
   const getAllRooms = async _ => {
     setLoading(true);
@@ -18,11 +113,14 @@ export const DataProvider = props => {
     const response = await request.data.rooms;
 
     setLoading(false);
-    return setRooms(response);
+    setRooms(response);
+    return;
   };
 
   return (
-    <DataContext.Provider value={[rooms, setRooms, loading]}>
+    <DataContext.Provider
+      value={[rooms, setRooms, sortedRooms, loading, allFilters, handleChange]}
+    >
       {props.children}
     </DataContext.Provider>
   );

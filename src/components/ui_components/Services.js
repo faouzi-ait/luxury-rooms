@@ -7,22 +7,22 @@ const Services = _ => {
     {
       icon: <FaCocktail />,
       title: "Some text goes here!",
-      info: "More dummy text goes here so it looks really noce ans useful"
+      info: "More dummy text goes here so it looks really nice and stuff"
     },
     {
       icon: <FaRunning />,
       title: "Some text goes here!",
-      info: "More dummy text goes here so it looks really noce ans useful"
+      info: "More dummy text goes here so it looks really nice and stuff"
     },
     {
       icon: <FaCarSide />,
       title: "Some text goes here!",
-      info: "More dummy text goes here so it looks really noce ans useful"
+      info: "More dummy text goes here so it looks really nice and stuff"
     },
     {
       icon: <FaBeer />,
       title: "Some text goes here!",
-      info: "More dummy text goes here so it looks really noce ans useful"
+      info: "More dummy text goes here so it looks really nice and stuff"
     }
   ]);
   return (
