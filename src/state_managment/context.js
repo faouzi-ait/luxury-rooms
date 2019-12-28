@@ -51,7 +51,7 @@ export const DataProvider = props => {
     [rooms, maxPriceDefault, maxSizeDefault]
   );
 
-  const handleChange = e => {
+  const handleChange = async e => {
     let tempRooms = [...rooms];
     const valueType = e.target.value;
 
@@ -73,6 +73,19 @@ export const DataProvider = props => {
     if (e.target.name === "price") {
       setPrice(e.target.value);
       tempRooms = tempRooms.filter(room => room.fields.price <= e.target.value);
+      setSortedRooms(tempRooms);
+    }
+
+    // FILTER BY SIZE
+    if (e.target.name === "minSize") {
+      setMinSize(Number(e.target.value));
+      tempRooms = tempRooms.filter(room => room.fields.size > minSize);
+      setSortedRooms(tempRooms);
+    }
+
+    if (e.target.name === "maxSize") {
+      setMaxSize(Number(e.target.value));
+      tempRooms = tempRooms.filter(room => room.fields.size < maxSize);
       setSortedRooms(tempRooms);
     }
 

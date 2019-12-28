@@ -13,7 +13,6 @@ const getUniqueGuest = items => {
 
 export default function Filters() {
   const [rooms, , , , allFilters, handleChange] = useContext(DataContext);
-  console.log(allFilters);
 
   // FILTER BY TYPES
   let uniqueTypes = getUniqueTypes(rooms);
@@ -41,6 +40,7 @@ export default function Filters() {
     <section className="filter-container">
       <Title title="Refine your Search" />
       <form className="filter-form">
+        
         {/* SELECT TYPE DROPDOWN */}
         <div className="form-group">
           <label htmlFor="type">room type</label>
@@ -90,7 +90,7 @@ export default function Filters() {
           <input
             type="number"
             name="minSize"
-            id="size"
+            id="minSize"
             onChange={handleChange}
             value={allFilters.byMinSize.get}
             className="size-input"
@@ -98,7 +98,7 @@ export default function Filters() {
           <input
             type="number"
             name="maxSize"
-            id="size"
+            id="maxSize"
             onChange={handleChange}
             value={allFilters.byMaxSize.get}
             className="size-input"
