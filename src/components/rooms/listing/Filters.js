@@ -69,7 +69,7 @@ export default function Filters() {
         </div>
         {/* END SELECT GUEST DROPDOWN */}
 
-        {/* SELECT GUEST DROPDOWN */}
+        {/* PRICE RANGE */}
         <div className="form-group">
           <label htmlFor="price">room price: {allFilters.byPrice.get}</label>
           <input
@@ -82,7 +82,57 @@ export default function Filters() {
             className="form-control"
           />
         </div>
-        {/* END SELECT GUEST DROPDOWN */}
+        {/* END PRICE RANGE */}
+
+        {/* ROOM SIZE */}
+        <div className="form-group">
+          <label htmlFor="price">room size</label>
+          <input
+            type="number"
+            name="minSize"
+            id="size"
+            onChange={handleChange}
+            value={allFilters.byMinSize.get}
+            className="size-input"
+          />
+          <input
+            type="number"
+            name="maxSize"
+            id="size"
+            onChange={handleChange}
+            value={allFilters.byMaxSize.get}
+            className="size-input"
+          />
+        </div>
+        {/* END ROOM SIZE */}
+
+        {/* BREAKFAST */}
+        <div className="form-group">
+          <div className="single-extra">
+            <input
+              type="checkbox"
+              name="breakfast"
+              id="breakfast"
+              onChange={handleChange}
+              checked={allFilters.byBreakfast.get}
+            />
+            <label htmlFor="breakfast">breakfast</label>
+          </div>
+          {/* END BREAKFAST */}
+
+          {/* PETS */}
+          <div className="single-extra">
+            <input
+              type="checkbox"
+              name="pets"
+              id="pets"
+              onChange={handleChange}
+              checked={allFilters.byPets.get}
+            />
+            <label htmlFor="pets">pets</label>
+          </div>
+          {/* END PETS */}
+        </div>
       </form>
     </section>
   );

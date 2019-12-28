@@ -40,7 +40,7 @@ export const DataProvider = props => {
 
   const maxPriceDefault = Math.max(...rooms.map(item => item.fields.price));
   const maxSizeDefault = Math.max(...rooms.map(item => item.fields.size));
-  
+
   // SORTED ROOM STATE TO BE PASSED IN THE ROOM LIST TO BE DISPLAYED
   useEffect(
     _ => {
@@ -55,23 +55,51 @@ export const DataProvider = props => {
     let tempRooms = [...rooms];
     const valueType = e.target.value;
 
-    console.log(">>>>>>>>>: ", e.target.name);
-
+    // FILTER BY TYPE
     if (e.target.name === "type") {
       tempRooms = tempRooms.filter(room => room.fields.type === valueType);
       valueType !== "all" ? setSortedRooms(tempRooms) : setSortedRooms(rooms);
     }
+
+    // FILTER BY CAPACITY
     if (e.target.name === "guest") {
       tempRooms = tempRooms.filter(
         room => room.fields.capacity === Number(valueType)
       );
       setSortedRooms(tempRooms);
     }
+
+    // FILTER BY PRICE
     if (e.target.name === "price") {
-      console.log(e.target.value);
       setPrice(e.target.value);
       tempRooms = tempRooms.filter(room => room.fields.price <= e.target.value);
       setSortedRooms(tempRooms);
+    }
+
+    // FILTER BY BREAKFAST
+    if (e.target.name === "breakfast") {
+      setBreakfast(breakfast => (breakfast = !breakfast));
+
+      if (breakfast) {
+        tempRooms = tempRooms.filter(room => room.fields.breakfast === true);
+        setSortedRooms(tempRooms);
+      } else {
+        tempRooms = tempRooms.filter(room => room.fields.breakfast === false);
+        setSortedRooms(tempRooms);
+      }
+    }
+
+    // FILTER BY PETS
+    if (e.target.name === "pets") {
+      setPets(pets => (pets = !pets));
+
+      if (pets) {
+        tempRooms = tempRooms.filter(room => room.fields.pets === true);
+        setSortedRooms(tempRooms);
+      } else {
+        tempRooms = tempRooms.filter(room => room.fields.pets === false);
+        setSortedRooms(tempRooms);
+      }
     }
   };
 
