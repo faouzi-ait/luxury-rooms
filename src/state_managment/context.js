@@ -77,12 +77,6 @@ export const DataProvider = props => {
     }
 
     // FILTER BY SIZE
-    if (e.target.name === "minSize") {
-      setMinSize(Number(e.target.value));
-      tempRooms = tempRooms.filter(room => room.fields.size > minSize);
-      setSortedRooms(tempRooms);
-    }
-
     if (e.target.name === "maxSize") {
       setMaxSize(Number(e.target.value));
       tempRooms = tempRooms.filter(room => room.fields.size < maxSize);

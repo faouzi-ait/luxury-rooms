@@ -609,4 +609,9 @@ h6 {
   }
 }
 
+.bg {
+  background: #ccc;
+  border: 1px solid #fff
+}
+
 /* end of rooms fitler*/
